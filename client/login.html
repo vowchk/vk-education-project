@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вход</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Вход в систему</h1>
+    <div class="form">
+      <input type="email" id="email" placeholder="Email" class="input">
+      <input type="password" id="password" placeholder="Пароль" class="input">
+      <button onclick="login()" class="btn btn-blue">Войти</button>
+      <p class="link-text">Нет аккаунта? <a href="register.html" class="link">Зарегистрироваться</a></p>
+      <a href="index.html" class="link">← На главную</a>
+    </div>
+    <!-- Блок для отображения ошибки -->
+    <div id="error" class="error" style="display: none;"></div>
+  </div>
+  <script src="js/auth.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>

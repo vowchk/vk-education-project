@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🎯 Quiz</h1>
+    <p class="subtitle">Платформа для проведения квизов в реальном времени</p>
+    <div class="buttons">
+      <a href="login.html" class="btn btn-blue">Войти</a>
+      <a href="register.html" class="btn btn-green">Регистрация</a>
+    </div>
+  </div>
+  <script src="js/auth.js"></script>
+  <script>
+    if (Auth.isAuthenticated()) window.location.href = 'dashboard.html';
+  </script>
+</body>
+</html>

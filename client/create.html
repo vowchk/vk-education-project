@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Создать квиз</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>📝 Создание квиза</h1>
+    
+    <div class="form">
+      <input type="text" id="title" placeholder="Название квиза" class="input">
+      
+      <h3>Вопросы:</h3>
+      <div id="questionsContainer"></div>
+      
+      <button type="button" onclick="addQuestion()" class="btn btn-green">➕ Добавить вопрос</button>
+      <button type="button" onclick="createQuiz()" class="btn btn-blue"> Создать квиз</button>
+      <a href="dashboard.html" class="link">← Назад</a>
+    </div>
+    
+    <div id="error" class="error" style="display: none;"></div>
+  </div>
+
+  <!-- Шаблон вопроса -->
+  <template id="question-template">
+    <div class="question-item">
+      <input type="text" placeholder="Текст вопроса" class="input question-text">
+      
+      <div class="image-upload-container">
+        <label class="file-upload-label">
+          <span>📷 Загрузить изображение (необязательно)</span>
+          <input type="file" accept="image/*" class="input question-image" style="display: none;">
+        </label>
+        <div class="image-preview"></div>
+      </div>
+      
+      <div class="options-container">
+        <input type="text" placeholder="Вариант 1" class="input option-input">
+        <input type="text" placeholder="Вариант 2" class="input option-input">
+        <input type="text" placeholder="Вариант 3" class="input option-input">
+        <input type="text" placeholder="Вариант 4" class="input option-input">
+      </div>
+      
+      <div class="answer-type-container">
+        <label>Тип ответа:</label>
+        <div class="answer-type-options">
+          <label class="radio-label">
+            <input type="radio" name="answerType" value="single" checked class="answer-type-radio">
+            <span>Один ответ</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="answerType" value="multiple" class="answer-type-radio">
+            <span>Несколько ответов</span>
+          </label>
+        </div>
+      </div>
+      
+      <div class="correct-answers-container">
+        <label>Правильные ответы:</label>
+        <div class="correct-answers-options">
+          <label class="checkbox-label">
+            <input type="radio" name="correctAnswer" value="0" class="correct-answer-input">
+            <span>Вариант 1</span>
+          </label>
+          <label class="checkbox-label">
+            <input type="radio" name="correctAnswer" value="1" class="correct-answer-input">
+            <span>Вариант 2</span>
+          </label>
+          <label class="checkbox-label">
+            <input type="radio" name="correctAnswer" value="2" class="correct-answer-input">
+            <span>Вариант 3</span>
+          </label>
+          <label class="checkbox-label">
+            <input type="radio" name="correctAnswer" value="3" class="correct-answer-input">
+            <span>Вариант 4</span>
+          </label>
+        </div>
+      </div>
+      
+      <div class="time-limit-container">
+        <label>⏱️ Время на ответ:</label>
+        <input type="number" class="input time-limit" value="15" min="5" max="60" step="5">
+        <span class="time-hint">секунд</span>
+      </div>
+      
+      <button type="button" class="btn btn-red remove-btn">🗑️ Удалить вопрос</button>
+    </div>
+  </template>
+
+  <script src="js/auth.js"></script>
+  <script src="js/create.js"></script>
+</body>
+</html>
